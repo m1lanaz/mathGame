@@ -1,44 +1,4 @@
-﻿Console.WriteLine("Please type your name");
-
-var name = Console.ReadLine();
-var date = DateTime.UtcNow;
-
-Console.WriteLine("-------------------------------------------");
-Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math's game. That's great that you're working on improving yourself\n");
-Console.WriteLine($@"What game would you like to play today? Choose from the options below:
-A - Addition
-S - Subtraction
-M - Multiplication
-D - Division 
-Q - Quit the progress");
-Console.WriteLine("-------------------------------------------");
-
-var gameSelected = Console.ReadLine();
-
-if (gameSelected.ToUpper().Trim() == "A")
-{
-    AdditionGame();
-}
-else if (gameSelected.ToUpper().Trim() == "S")
-{
-    SubtractionGame();
-}
-else if (gameSelected.ToUpper().Trim() == "M")
-{
-    MultiplicationGame();
-}
-else if (gameSelected.ToUpper().Trim() == "D")
-{
-    DivisionGame();
-}
-else if (gameSelected.ToUpper().Trim() == "Q")
-{
-    QuitGame();
-}
-else
-{
-    Console.WriteLine("Please enter in a valid letter");
-};
+﻿Menu();
 
 void AdditionGame()
 {
@@ -63,4 +23,47 @@ void DivisionGame()
 void QuitGame()
 {
     Console.WriteLine("You chose Q");
+}
+
+void Menu()
+{
+    Console.WriteLine("Please type your name");
+
+    var name = Console.ReadLine();
+    var date = DateTime.UtcNow;
+
+    Console.WriteLine("-------------------------------------------");
+    Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math's game. That's great that you're working on improving yourself\n");
+    Console.WriteLine($@"What game would you like to play today? Choose from the options below:
+A - Addition
+S - Subtraction
+M - Multiplication
+D - Division 
+Q - Quit the progress");
+    Console.WriteLine("-------------------------------------------");
+
+    var gameSelected = Console.ReadLine();
+
+
+    switch (gameSelected.ToUpper().Trim())
+    {
+        case "A":
+            AdditionGame();
+            break;
+        case "S":
+            SubtractionGame();
+            break;
+        case "M":
+            MultiplicationGame();
+            break;
+        case "D":
+            DivisionGame();
+            break;
+        case "Q":
+            QuitGame();
+            break;
+        default:
+            Console.WriteLine("Please enter in a valid letter");
+            break;
+    }
 }
