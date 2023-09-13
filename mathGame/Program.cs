@@ -17,25 +17,50 @@ var gameSelected = Console.ReadLine();
 
 if (gameSelected.ToUpper().Trim() == "A")
 {
-    Console.WriteLine("IT WORKED!");
+    AdditionGame();
 }
 else if (gameSelected.ToUpper().Trim() == "S")
 {
-    Console.WriteLine("You chose S");
+    SubtractionGame();
 }
 else if (gameSelected.ToUpper().Trim() == "M")
 {
-    Console.WriteLine("You chose M");
+    MultiplicationGame();
 }
 else if (gameSelected.ToUpper().Trim() == "D")
 {
-    Console.WriteLine("You chose D");
+    DivisionGame();
 }
 else if (gameSelected.ToUpper().Trim() == "Q")
 {
-    Console.WriteLine("You chose Q");
+    QuitGame();
 }
 else
 {
     Console.WriteLine("Please enter in a valid letter");
 };
+
+void AdditionGame()
+{
+    Console.WriteLine("You chose A");
+}
+
+void SubtractionGame()
+{
+    Console.WriteLine("You chose S");
+}
+
+void MultiplicationGame()
+{
+    Console.WriteLine("You chose M");
+}
+
+void DivisionGame()
+{
+    Console.WriteLine("You chose D");
+}
+
+void QuitGame()
+{
+    Console.WriteLine("You chose Q");
+}
