@@ -5,6 +5,8 @@ Menu();
 void AdditionGame()
 {
 
+    Console.Clear();
+
     var random = new Random();
     var score = 0;
 
@@ -14,8 +16,7 @@ void AdditionGame()
     for (int i = 0; i < 5; i++)
     {
 
-        Console.Clear();
-        Console.WriteLine("Thank you for picking the diviion game!");
+        Console.WriteLine("Thank you for picking the addition game!");
 
         firstNumber = random.Next(1, 9);
         secondNumber = random.Next(1, 9);
@@ -37,6 +38,8 @@ void AdditionGame()
         }
     }
     Console.WriteLine($"The game is over! Your score is {score}");
+    Console.WriteLine("Press any key to go back to main menu");
+    Console.ReadLine();
 }
 
 void SubtractionGame()
@@ -51,12 +54,11 @@ void MultiplicationGame()
 
 void DivisionGame()
 {
-
+    Console.Clear();
     var score = 0;
 
     for (int i = 0; i < 5; i++)
     {
-        Console.Clear();
         Console.WriteLine("Thank you for picking the diviion game!");
 
         var divisionNumbers = GetDivisionNumbers();
@@ -79,11 +81,8 @@ void DivisionGame()
         }
     }
     Console.WriteLine($"The game is over! Your score is {score}");
-}
-
-void QuitGame()
-{
-    Console.WriteLine("You chose Q");
+    Console.WriteLine("Press any key to go back to main menu");
+    Console.ReadLine();
 }
 
 void Menu()
@@ -95,39 +94,49 @@ void Menu()
 
     Console.WriteLine("-------------------------------------------");
     Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math's game. That's great that you're working on improving yourself\n");
-    Console.WriteLine($@"What game would you like to play today? Choose from the options below:
+
+    var isGameOn = true;
+
+    do
+    {
+        Console.Clear();
+        Console.WriteLine($@"What game would you like to play today? Choose from the options below:
 A - Addition
 S - Subtraction
 M - Multiplication
 D - Division 
 Q - Quit the progress");
-    Console.WriteLine("-------------------------------------------");
+        Console.WriteLine("-------------------------------------------");
 
-    var gameSelected = Console.ReadLine();
+        var gameSelected = Console.ReadLine();
 
 
-    switch (gameSelected.ToUpper().Trim())
-    {
-        case "A":
-            AdditionGame();
-            break;
-        case "S":
-            SubtractionGame();
-            break;
-        case "M":
-            MultiplicationGame();
-            break;
-        case "D":
-            DivisionGame();
-            break;
-        case "Q":
-            QuitGame();
-            break;
-        default:
-            Console.WriteLine("Please enter in a valid letter");
-            break;
-    }
+        switch (gameSelected.ToUpper().Trim())
+        {
+            case "A":
+                AdditionGame();
+                break;
+            case "S":
+                SubtractionGame();
+                break;
+            case "M":
+                MultiplicationGame();
+                break;
+            case "D":
+                DivisionGame();
+                break;
+            case "Q":
+                Console.WriteLine("Goodbye");
+                isGameOn = false;
+                break;
+            default:
+                Console.WriteLine("Please enter in a valid letter");
+                break;
+        }
+    } while (isGameOn);
 }
+
+    
 
 int[] GetDivisionNumbers()
 {
