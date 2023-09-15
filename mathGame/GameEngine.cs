@@ -24,6 +24,8 @@ namespace mathGame
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
                 var result = Console.ReadLine();
 
+                result = Helpers.ValidateResult(result);
+
                 //int.parse converts the string input into an integer
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
@@ -70,6 +72,8 @@ namespace mathGame
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == firstNumber / secondNumber)
                 {

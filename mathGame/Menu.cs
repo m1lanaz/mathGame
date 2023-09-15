@@ -1,4 +1,6 @@
-﻿
+﻿using System;
+using System.Threading;
+
 namespace mathGame
 {
     internal class Menu
@@ -7,15 +9,14 @@ namespace mathGame
 
         internal void ShowMenu()
         {
-            Console.WriteLine("Please type your name");
-
-            var name = Console.ReadLine();
+            var name = Helpers.GetName();
             var date = DateTime.UtcNow;
 
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math's game. That's great that you're working on improving yourself\n");
 
             var isGameOn = true;
+            Thread.Sleep(2000);
 
             do
             {
